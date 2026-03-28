@@ -1,0 +1,23 @@
+{
+  "name": "educart",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "server": "npm run server --prefix backend",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "data:import": "node backend/seeder.js ",
+    "data:destroy": "node backend/seeder.js -d"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "dotenv": "^17.3.1"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "mongoose": "^9.3.3"
+  }
+}
