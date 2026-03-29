@@ -2,8 +2,8 @@
 import { Row, Col } from 'react-bootstrap'
 import Product from '../components/Product.jsx'
 import { useGetProductsQuery } from '../slices/productApiSlice.js'
-import Loader from '../components/Loader.js'
-import Message from '../components/Message.js'
+import Loader from '../components/Loader.jsx'
+import Message from '../components/Message.jsx'
 
 function HomeScreen() {
 
