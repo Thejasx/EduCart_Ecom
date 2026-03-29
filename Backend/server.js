@@ -1,15 +1,21 @@
 import express from 'express';
-import products from './data/products.js';
 import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
 import connectDB from './config/db.js';
 import ProductRoutes from './routes/ProductRoutes.js';
 import  {errorHandler, notFound } from './middleware/errorHandler.js';
+import UserRoutes from './routes/userRoutes.js';  
 
 dotenv.config();
 
 connectDB();
 
 const app = express();
+
+app.use(express.json());
+app.use( express.urlencoded({ extended: true }));
+app.use(cookieParser());
+
 const PORT = process.env.PORT || 5000
 
 app.get('/',(req,res)=>{
@@ -17,6 +23,7 @@ app.get('/',(req,res)=>{
 })
 
 app.use("/api/products", ProductRoutes)
+app.use("/api/users", UserRoutes)
 
 
 
