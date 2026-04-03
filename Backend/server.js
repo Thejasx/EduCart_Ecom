@@ -1,12 +1,14 @@
 import express from 'express';
 import dotenv from 'dotenv';
+dotenv.config();
 import cookieParser from 'cookie-parser';
 import connectDB from './config/db.js';
 import ProductRoutes from './routes/ProductRoutes.js';
 import  {errorHandler, notFound } from './middleware/errorHandler.js';
-import UserRoutes from './routes/userRoutes.js';  
+import UserRoutes from './routes/userRoutes.js'; 
+import OrderRoutes from './routes/orderRoutes.js';
+ 
 
-dotenv.config();
 
 connectDB();
 
@@ -24,6 +26,7 @@ app.get('/',(req,res)=>{
 
 app.use("/api/products", ProductRoutes)
 app.use("/api/users", UserRoutes)
+app.use("/api/orders", OrderRoutes)
 
 
 
